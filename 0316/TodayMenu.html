@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Today's Menu</title>
+		<style>
+			*{
+				margin:0;
+				padding:0;
+			}
+			section{
+				background : rgb(206, 204, 204);
+				width:920px;
+				height:560px;
+				margin: 0 auto;
+				margin-top: 20px;
+			}
+			h2{
+				text-align : center;
+			}
+			button{
+				margin : 20px 0px 20px 400px;
+				width: 120px;
+				height: 50px;
+				font-size : 20px;
+				font-weight:bold;
+			}
+			#selected{
+				margin : 20px 0px 20px 280px;
+				width: 380px;
+				height: 240px;
+			}
+			div{
+				clear : both;
+			}
+			.img{
+				opacity:0.4;
+				margin-left : 20px;
+				width:200px;
+			}
+			.img:hover{
+				opacity:1;
+			}
+		</style>
+		
+	</head>
+	<body>
+		<section>
+			<button onclick="random()">랜덤선택</button>
+			<h2 id="menu">오늘의 메뉴 : 케이크</h2>
+			<img id ="selected" src = "media/cake.jpg"></img>
+			<div>
+				<img class="img" id = "cake" src="media/cake.jpg" onclick="change(this)"></img>
+				<img class="img" id = "hamburger" src="media/burger.jpg" onclick="change(this)"></img>
+				<img class="img" id = "steak" src="media/steak.jpg" onclick="change(this)"></img>
+				<img class="img" id = "sandwich" src="media/sandwich.jpg" onclick="change(this)"></img>
+			</div>
+		</section>
+		
+		<script>
+			var files=[ "media/cake.jpg",
+						"media/burger.jpg",
+						"media/steak.jpg",
+						"media/sandwich.jpg"]
+			// 랜덤버튼 클릭했을 때
+			function random(){
+				var num = Math.floor(Math.random() * 4);
+				document.getElementById("selected").src = files[num];
+				
+				switch(num){
+				case 0:
+					document.getElementsByTagName("h2")[0].innerHTML="오늘의 메뉴 : 케이크";
+					break;
+				case 1:
+					document.getElementsByTagName("h2")[0].innerHTML="오늘의 메뉴 : 햄버거";			
+					break;
+				case 2:
+					document.getElementsByTagName("h2")[0].innerHTML="오늘의 메뉴 : 스테이크";
+					break;
+				case 3:
+					document.getElementsByTagName("h2")[0].innerHTML="오늘의 메뉴 : 샌드위치";
+					break;
+				}
+				
+			}
+			// 메뉴사진 클릭했을 때
+			function change(img){
+				document.getElementById("selected").src = img.src;
+				
+				switch(img.id){
+				case "cake":
+					document.getElementsByTagName("h2")[0].innerHTML="오늘의 메뉴 : 케이크";
+					break;
+				case "hamburger":
+					document.getElementsByTagName("h2")[0].innerHTML="오늘의 메뉴 : 햄버거";			
+					break;
+				case "steak":
+					document.getElementsByTagName("h2")[0].innerHTML="오늘의 메뉴 : 스테이크";
+					break;
+				case "sandwich":
+					document.getElementsByTagName("h2")[0].innerHTML="오늘의 메뉴 : 샌드위치";
+					break;
+				}				
+				
+
+				//document.getElementsById(img.src).border = '3px solid rgb(0,0,0)';
+			}
+		</script>
+	</body>
+</html>

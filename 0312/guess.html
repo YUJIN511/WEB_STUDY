@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>정수 맞히기</title>
+	</head>
+	<body>
+		<script>
+				document.write("<h3>3. 임의의 정수(1~10) 한 개를 발생시켜 변수에 저장한 후 사용자가 값을 입력해 알아 맞히는 프로그램</h3>");
+				document.write("<hr>");
+				
+				var num = Math.floor(Math.random() * 10)+1;
+				var input =-1;
+				var count = 0;
+				while(input !=num){
+					input = prompt("1~10 범위의 정수를 입력하세요");
+					count++;
+				}
+				document.write("정답 : "+num+"<br>");
+				document.write(count+ "번 만에 맞추셨습니다!");
+					
+			</script>
+	</body>
+</html>
